@@ -1,0 +1,29 @@
+<h1>Edit <%= @trip.trip_name %></h1>
+
+<form action="/trips/<%= @trips.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    Trip Name:
+    <input type="text" name="branch_name" value="<%= @library.branch_name %>">
+  </div>
+  <div>
+    Trip Description:
+    <input type="text" name="phone_number" value="<%= @library.phone_number %>">
+  </div>
+  <div>
+   
+</form>
+
+<% if @trips.count > 1 %>
+  <h2>Delete This Branch?</h2>
+  <form action="/trips/<%= @trip.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <select name="new_trip_id">
+      <% @trips.each do |l| %>
+        <% unless l.id == @trip.id %>
+          <option value="<%= l.id %>"><%= t.trip_name %></option>
+        <% end %>
+      <% end %>
+    <input type="submit" value="Delete This Trips!">
+  </form>
+<% end %>
