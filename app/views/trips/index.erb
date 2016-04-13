@@ -1,0 +1,8 @@
+<h1>Trips Index</h1>
+<ul>
+  <% @trips.each do |l| %>
+    <li><a href="/trips/<%= t.id %>"><%= t.trip_name %></a></li>
+  <% end %>
+</ul>
+<p><a href="/trips/new">New Trip</a></p>
+<p><a href="/">Back Home</a></p>
