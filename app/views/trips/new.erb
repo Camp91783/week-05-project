@@ -1,16 +1,15 @@
 <h1>New Trip</h1>
 
 <form action="/trips" method="post">
-  <div class="form-group">
+  <div> 
     Trip Name:
-    <input type="text" name="trip_name" value="<%= @trip.trip_name%>">
+    <input type="text" name="name" >
   </div>
-  <div class="form-control">
+  <div>
     Description of trip:
-    <input type="text" name="description" value="<%= @description.trip_name %>" >
-  </div>
-  <div class="form-group">
-    <input type="submit" value="New Trip" class="btn btn-default">
-  </div>
-</form>
-<p><a href="/libraries">Back to Libraries</a></p>
+    <input type="text" description="t.description"
+    </div> 
+    <div>
+    <input type= "submit" value="Make a new trip">
+    
+<p><a href="/trips">Back to Trips</a></p>

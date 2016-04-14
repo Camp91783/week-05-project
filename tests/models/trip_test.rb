@@ -1,9 +1,10 @@
-require_relative "test_helper"
+require_relative "../test_helper"
 
 class TripTest < Minitest::Test
 
-  def test_valid_under_normal_circumstances
-    trip = Trip.new(name: "cruise", description: "cruise to Barbados")
-    assert(trip.valid?, "trip should be good by default")
+	  def test_valid_at_creation
+    trip = Trip.new(name: "cruise", description: "cruise to Alaska")
+    assert(trip.valid?, "Trip should be good by default")
   end
+
 end

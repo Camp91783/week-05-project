@@ -3,5 +3,6 @@ class AddAssociations < ActiveRecord::Migration
     add_column :locations, :trip_id, :integer
     add_column :activities, :location_id, :integer
     
+    
   end
 end

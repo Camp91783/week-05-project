@@ -10,7 +10,7 @@ end
 #create
 
 post "/trips/?" do
-  @trip = Trips.new(params)
+  @trip = Trip.new(params)
 
   if @trip.save
     redirect to("/trips")
@@ -22,7 +22,7 @@ end
 #index
 get "/trips/?" do
   @trips = Trip.all
-  erb :"trip/index"
+  erb :"trips/index"
 end
 
 #show
@@ -39,7 +39,7 @@ end
 
 #update
 
-patch "trips/:id/edit/?"
+patch "trips/:id/edit/?" do
   @trip = Trip.find_by_id(params['id'])
 
   if @trip.update_attributes(name: params['name'], description: params['description'])
@@ -56,5 +56,4 @@ delete "trips/:id/edit/?"
   @trip = Trip.find_by_id(params['id'])
   @trip.destroy
   redirect to("flash-cards")
-
 end

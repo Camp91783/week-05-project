@@ -1,14 +1,14 @@
-<h1>Edit <%= @trip.trip_name %></h1>
+<h1>Edit <%= @trips.trip_name %></h1>
 
 <form action="/trips/<%= @trips.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <div>
     Trip Name:
-    <input type="text" name="branch_name" value="<%= @library.branch_name %>">
+    <input type="text" name="name" value="<%= @trip.trip_name %>">
   </div>
   <div>
     Trip Description:
-    <input type="text" name="phone_number" value="<%= @library.phone_number %>">
+    <input type="text" name="description" value="<%= @trip.description %>">
   </div>
   <div>
    
