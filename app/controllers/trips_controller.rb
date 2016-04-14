@@ -13,7 +13,7 @@ post "/trips/?" do
   @trip = Trip.new(params)
 
   if @trip.save
-    redirect to("/trips")
+    redirect to("/trips/index")
   else 
     erb :"trips/new"
   end
@@ -29,6 +29,11 @@ end
 get "/trips/:id/?" do
   @trip = Trip.find_by_id(params['id'])
   erb :"trips/show"
+end
+
+get "/trips/:id/answer/?" do
+  @trips = Trips.find_by_id(params['id'])
+  erb :"trip/answer"
 end
 
 #edit
