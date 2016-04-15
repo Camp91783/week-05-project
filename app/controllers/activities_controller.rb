@@ -7,11 +7,11 @@ end
 
 #create
 
-post "/activites/?" do
+post "/activities/?" do
   @activity = Activity.new(params)
 
   if @activity.save
-    redirect to("/activities/index")
+    redirect to("/activities")
   else 
     erb :"activities/new"
   end

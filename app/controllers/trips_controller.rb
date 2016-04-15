@@ -13,7 +13,7 @@ post "/trips/?" do
   @trip = Trip.new(params)
 
   if @trip.save
-    redirect to("/trips/index")
+    redirect to("/trips")
   else 
     erb :"trips/new"
   end

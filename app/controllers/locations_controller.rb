@@ -13,7 +13,7 @@ post "/locations/?" do
   @location = Location.new(params)
 
   if @location.save
-    redirect to("/locations/index")
+    redirect to("/locations")
   else 
     erb :"locations/new"
   end
