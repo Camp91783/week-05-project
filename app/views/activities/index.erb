@@ -1,0 +1,9 @@
+<h1>Activities Index</h1>
+<ul>
+  <% @activities.each do |t| %>
+
+    <li><a href="/activities/<%= a.id %>"><%= a.name %></a></li>
+  <% end %>
+</ul>
+<p><a href="/activities/new">New Activity</a></p>
+<p><a href="/">Back Home</a></p>

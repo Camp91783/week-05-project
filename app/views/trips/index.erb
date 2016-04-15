@@ -1,6 +1,7 @@
 <h1>Trips Index</h1>
 <ul>
-  <% @trips.index do |t| %>
+  <% @trips.each do |t| %>
+
     <li><a href="/trips/<%= t.id %>"><%= t.name %></a></li>
   <% end %>
 </ul>

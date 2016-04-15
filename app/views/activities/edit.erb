@@ -1,0 +1,29 @@
+<h1>Edit <%= @activities.activity_name %></h1>
+
+<form action="/activities/<%= @activities.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    Activity Name:
+    <input type="text" name="name" value="<%= @activity.activity.name %>">
+  </div>
+  <div>
+    Activity Cost:
+    <input type="text" name="cost" value="<%= @activity.cost %>">
+  </div>
+  <div>
+   
+</form>
+
+<% if @activity.count > 1 %>
+  <h2>Delete This Branch?</h2>
+  <form action="/activities/<%= @activity.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <select name="name">
+      <% @activities.each do |l| %>
+        <% unless a.id == @activity.id %>
+          <option value="<%= a.id %>"><%= a.activity_name %></option>
+        <% end %>
+      <% end %>
+    <input type="submit" value="Delete This Activity!">
+  </form>
+<% end %>

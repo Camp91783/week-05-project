@@ -17,13 +17,13 @@ ActiveRecord::Schema.define(version: 4) do
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.string  "name"
-    t.string  "cost"
+    t.string  "name",        null: false
+    t.string  "cost",        null: false
     t.integer "location_id"
   end
 
   create_table "locations", force: :cascade do |t|
-    t.string  "name"
+    t.string  "name",    null: false
     t.integer "trip_id"
   end
 

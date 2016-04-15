@@ -1,0 +1,9 @@
+<h1>Locations Index</h1>
+<ul>
+  <% @locations.each do |l| %>
+
+    <li><a href="/locations/<%= l.id %>"><%= l.name %></a></li>
+  <% end %>
+</ul>
+<p><a href="/locations/new">New Location</a></p>
+<p><a href="/">Back Home</a></p>

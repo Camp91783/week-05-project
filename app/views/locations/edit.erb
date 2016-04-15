@@ -1,16 +1,13 @@
-<h1>Edit <%= @trips.trip_name %></h1>
+<h1>Edit <%= @locations.location_name %></h1>
 
-<form action="/trips/<%= @trips.id %>" method="post">
+<form action="/locations/<%= @locations.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <div>
-    Trip Name:
-    <input type="text" name="name" value="<%= @trip.trip.name %>">
+    Location Name:
+    <input type="text" name="name" value="<%= @location.location.name %>">
   </div>
   <div>
-    Trip Description:
-    <input type="text" name="description" value="<%= @trip.description %>">
-  </div>
-  <div>
+   
    
 </form>
 

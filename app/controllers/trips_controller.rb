@@ -60,5 +60,5 @@ end
 delete "trips/:id/edit/?"
   @trip = Trip.find_by_id(params['id'])
   @trip.destroy
-  redirect to("flash-cards")
+  redirect to("trips")
 end
