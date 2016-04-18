@@ -47,8 +47,13 @@ end
 patch "/locations/?" do
   @location = Location.find_by_id(params['id'])
 
+
+  if @location.update_attributes(name: params['name'],
+    redirect to("/locations/#{@location.id}")
+  else
+
     erb :"locations/edit"
-  
+  end
 end
 
 get "locations/:id/activities" do
