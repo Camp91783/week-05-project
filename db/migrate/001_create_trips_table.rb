@@ -4,6 +4,7 @@ class CreateTripsTable < ActiveRecord::Migration
 			t.string :name
 			t.string :description
 			t.string :trip_id
+			t.string :entertainment_id
 		end
 	end
 end

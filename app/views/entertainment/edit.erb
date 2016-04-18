@@ -1,0 +1,25 @@
+<h1>Edit <%= @entertainment.entertainment_name %></h1>
+
+<form action="/entertainments/<%= @entertainments.id %>" method="post">
+  <input type="hidden" name="_method" value="patch">
+  <div>
+    Entertainment Name:
+    <input type="text" name="name" value="<%= @entertainment.entertainment.name %>">
+  </div>
+  <div>
+  
+</form>
+
+<% if @trips.count > 1 %>
+  <h2>Delete This Branch?</h2>
+  <form action="/entertainments/<%= @entertainment.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <select name="name">
+      <% @trips.each do |l| %>
+        <% unless e.id == @entertainment.id %>
+          <option value="<%= e.id %>"><%= e.entertainment_name %></option>
+        <% end %>
+      <% end %>
+    <input type="submit" value="Delete This Entertainment!">
+  </form>
+<% end %>

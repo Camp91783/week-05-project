@@ -1,0 +1,9 @@
+<h1>Entertainment Index</h1>
+<ul>
+  <% @entertainment.each do |e| %>
+
+    <li><a href="/entertainment/<%= e.id %>"><%= e.name %></a></li>
+  <% end %>
+</ul>
+<p><a href="/entertainment/new">New Entertainment</a></p>
+<p><a href="/">Back Home</a></p>

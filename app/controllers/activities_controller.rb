@@ -53,6 +53,16 @@ patch "activities/:id/edit/?" do
 
 end
 
+#joining activity to location
+post "/activities/:id/locations/locations_id/join" do
+  @activity = Activity.find_by_id(params['id'])
+  @location = Location.find_by_id(params['location_id'])
+
+  @activity.Location << @location
+  redirect to ("/activity/#{activity.id}/locations")
+
+end
+
 
 #delete
 delete "activities/:id/edit/?"

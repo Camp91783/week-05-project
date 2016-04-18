@@ -1,0 +1,21 @@
++<h1>entertainment in location</h1>
+ +
+ +<ul>
+ +  <% @location.each do |l| %>
+ +    <li>
+ +      <div>
+ +        <% if @entertainment.location.include?(l) %>
+ +          <form action="/location/<%= @entertainment.id %>/entertainment/leave" method="post">
+ +            <input type="hidden" name="entertainment_id" value="<%= e.id %>">
+ +            <input type="submit" value="Leave <%= e.name %>">
+ +          </form>
+ +        <% else %>
+ +          <form action="/location/<%= @location.id %>/entertainment/join" method="post">
+ +            <input type="hidden" name="entertainment_id" value="<%= e.id %>">
+ +            <input type="submit" value="Join <%= e.name %>">
+ +          </form>
+ +        <% end %>
+ +      </div>
+ +    </li>
+ +  <% end %>
+ +</ul>

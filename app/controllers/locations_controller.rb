@@ -39,26 +39,53 @@ end
 #edit
 get "/locations/:id/edit/?" do
   @location = Location.find_by_id(params['id'])
-  erb :"location/edit"
+  erb :"locations/edit"
 end
 
 #update
 
-patch "locations/:id/edit/?" do
+patch "/locations/?" do
   @location = Location.find_by_id(params['id'])
 
-  if @location.update_attributes(name: params['name'])
+    erb :"locations/edit"
+  
+end
 
-    redirect to ("/locations/#{@location.id}")
-  else
-    erb :"location/edit"
+get "locations/:id/activities" do
+  @location = Location.find_by_id(params['id'])
+  @activty = Activity.all
+
+  erb :"locations/activities"
+end
+
+#joining location to activity
+post "/locations/:id/activities/activities_id/join" do
+  @location = Location.find_by_id(params['id'])
+  @activty = Activity.find_by_id(params['activity_id'])
+
+  @location.Activity << @activity
+  redirect to ("/location/#{location.id}/activities")
 
 end
 
+#separate location and activity
+  post '/locations/:id/entertainment/join' do
+   @location = location.find_by_id(params['id'])
+   @entertainment = Entertainment.find_by_id(params['entertainment_id'])
+ 
+   @location.entertainment << @entertainment
+   redirect to("/locations/#{@entertainment.id}/entertainment")
+  end 
+#leave location and entertainment
 
-#delete
-delete "locations/:id/edit/?"
-  @location = Location.find_by_id(params['id'])
-  @location.destroy
-  redirect to("locations")
-end
+
+  post '/location/:id/entertainment/leave' do
+   @location = Location.find_by_id(params['id'])
+   @entertainment = Entertainment.find_by_id(params['entertainment_id'])
+ 
+   @location.entertainment.delete(@entertainment)
+   redirect to("/location/#{@location.id}/entertainment")
+  end
+
+
+

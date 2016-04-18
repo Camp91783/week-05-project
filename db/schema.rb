@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 5) do
+ActiveRecord::Schema.define(version: 8) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,20 +22,37 @@ ActiveRecord::Schema.define(version: 5) do
     t.integer "location_id"
   end
 
+  create_table "activities_entertainment", id: false, force: :cascade do |t|
+    t.integer "activity_id",      null: false
+    t.integer "entertainment_id", null: false
+  end
+
+  create_table "activities_entertainments", id: false, force: :cascade do |t|
+    t.integer "entertainment_id", null: false
+    t.integer "activity_id",      null: false
+  end
+
   create_table "activities_locations", id: false, force: :cascade do |t|
     t.integer "location_id", null: false
     t.integer "activity_id", null: false
   end
 
+  create_table "entertainments", force: :cascade do |t|
+    t.string "name"
+    t.string "entertainment_id"
+  end
+
   create_table "locations", force: :cascade do |t|
-    t.string  "name",    null: false
+    t.string  "name",             null: false
     t.integer "trip_id"
+    t.integer "entertainment_id"
   end
 
   create_table "trips", force: :cascade do |t|
     t.string "name"
     t.string "description"
     t.string "trip_id"
+    t.string "entertainment_id"
   end
 
 end

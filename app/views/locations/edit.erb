@@ -1,26 +1,18 @@
-<h1>Edit <%= @locations.location_name %></h1>
+<h1>Edit Location</h1>
 
-<form action="/locations/<%= @locations.id %>" method="post">
+<form action="/locations/<%= @id %>" method="post">
   <input type="hidden" name="_method" value="patch">
   <div>
     Location Name:
-    <input type="text" name="name" value="<%= @location.location.name %>">
+    <input type="text" name="name" value="<%= @name %>">
   </div>
   <div>
    
+  </div>
+  <div>
+    <input type="submit" value="Update Location">
    
 </form>
 
-<% if @trips.count > 1 %>
-  <h2>Delete This Branch?</h2>
-  <form action="/trips/<%= @trip.id %>" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <select name="name">
-      <% @trips.each do |l| %>
-        <% unless l.id == @trip.id %>
-          <option value="<%= t.id %>"><%= t.trip_name %></option>
-        <% end %>
-      <% end %>
-    <input type="submit" value="Delete This Trips!">
-  </form>
-<% end %>
+<p><a href="/">Back Home</a></p>
+
